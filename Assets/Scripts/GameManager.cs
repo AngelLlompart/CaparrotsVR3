@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         InitLevel();
-        btnConfirm.onClick.AddListener(Confirm);
         
     }
 
@@ -45,7 +44,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    private void Confirm()
+    public void Confirm()
     {
         //PlayerInfoClass player = new PlayerInfoClass(userInput.text, 100);
         var filePath = Path.Combine(Application.persistentDataPath, "Leaderboard.json");
@@ -74,20 +73,21 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         //desactivar manos y activar otra
-        xrCanvas.SetActive(true);
-        playerOrigin.transform.position = Vector3.zero;
-        
-        playerOrigin.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
-        playerOrigin.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
-        _player.transform.Find("LeftHand Controller").gameObject.SetActive(false);
-        _player.transform.Find("LeftHand ControllerMenu").gameObject.SetActive(true);
+       
         _timer.StopTimer();
         //_player.gameObject.GetComponent<PlayerController>().enabled = false;
         //Cursor.visible = true;
         //Cursor.lockState = CursorLockMode.None;
         //Time.timeScale = 0;
         if (win.Value)
-        {
+        { 
+            xrCanvas.SetActive(true);
+            playerOrigin.transform.position = new Vector3(0,0,2);
+        
+            playerOrigin.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
+            playerOrigin.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
+            _player.transform.Find("LeftHand Controller").gameObject.SetActive(false);
+            _player.transform.Find("LeftHand ControllerMenu").gameObject.SetActive(true);
             txtPoints.text = "Points: " + points;
         }
         else

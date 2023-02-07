@@ -15,10 +15,4 @@ public class InitLevel1 : MonoBehaviour
         _timer.ResetTimer();
         _gameManager.InitLevel();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
