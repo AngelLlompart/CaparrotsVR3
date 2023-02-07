@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using TMPro;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,13 +21,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_InputField userInput;
     [SerializeField] private Button btnConfirm;
     [SerializeField] private TextMeshProUGUI txtPoints;
-    [SerializeField] private RawImage scoreBckgrnd;
+    [SerializeField] private GameObject xrCanvas;
+    [SerializeField] private XROrigin playerOrigin;
 
     // Start is called before the first frame update
     void Start()
     {
         InitLevel();
         btnConfirm.onClick.AddListener(Confirm);
+        
     }
 
     // Update is called once per frame
@@ -69,15 +73,22 @@ public class GameManager : MonoBehaviour
     
     public void EndGame()
     {
+        //desactivar manos y activar otra
+        xrCanvas.SetActive(true);
+        playerOrigin.transform.position = Vector3.zero;
+        
+        playerOrigin.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
+        playerOrigin.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
+        _player.transform.Find("LeftHand Controller").gameObject.SetActive(false);
+        _player.transform.Find("LeftHand ControllerMenu").gameObject.SetActive(true);
         _timer.StopTimer();
         //_player.gameObject.GetComponent<PlayerController>().enabled = false;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 0;
+        //Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+        //Time.timeScale = 0;
         if (win.Value)
         {
             txtPoints.text = "Points: " + points;
-            scoreBckgrnd.gameObject.SetActive(true);
         }
         else
         {
@@ -88,11 +99,11 @@ public class GameManager : MonoBehaviour
     public void InitLevel()
     {
         _timer = GameObject.FindObjectOfType<Timer>();
-        _player = GameObject.FindWithTag("Player");
+        _player = GameObject.Find("Camera Offset");
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
         win.Value = false;
-        scoreBckgrnd.gameObject.SetActive(false);
+        xrCanvas.SetActive(false);
     }
 }

@@ -46,11 +46,11 @@ public class ObjectPlaced : MonoBehaviour
 
             if (collision.gameObject == GameObject.Find(text + "(Clone)"))
             {
-                _buttonPressed.objectPlaced[num] = true;
+                _buttonPressed.objectsPlaced[num] = true;
             }
             else
             {
-                _buttonPressed.objectPlaced[num] = false;
+                _buttonPressed.objectsPlaced[num] = false;
             }
 
             _buttonPressed.caparrotsInPedestals[num] = true;
@@ -61,7 +61,7 @@ public class ObjectPlaced : MonoBehaviour
     {
         if (collision.collider.gameObject == objectPlaced)
         {
-            _buttonPressed.objectPlaced[num] = false;
+            _buttonPressed.objectsPlaced[num] = false;
             _buttonPressed.caparrotsInPedestals[num] = false;
             objectPlaced = null;
         }

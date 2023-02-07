@@ -7,7 +7,7 @@ using UnityEngine;
 public class ButtonPressed : MonoBehaviour
 {
    
-    public List<bool> objectPlaced;
+    public List<bool> objectsPlaced;
     public List<bool> caparrotsInPedestals;
 
     public List<GameObject> placeHolders;
@@ -16,15 +16,19 @@ public class ButtonPressed : MonoBehaviour
     //private BlinkCheck _blinkCheck;
 
     private bool win = false;
-    
+
+    [Header("Persistent points")] 
+    [SerializeField] private IntegerPersistanceVariable Points;
     // Start is called before the first frame update
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
         //_blinkCheck = FindObjectOfType<BlinkCheck>();
 
-        objectPlaced = Enumerable.Repeat(false,placeHolders.Count).ToList();
+        objectsPlaced = Enumerable.Repeat(false,placeHolders.Count).ToList();
         caparrotsInPedestals = Enumerable.Repeat(false,placeHolders.Count).ToList();
+
+        Points.Value = 9000;
     }
 
     // Update is called once per frame
@@ -42,9 +46,9 @@ public class ButtonPressed : MonoBehaviour
 
     public void Press()
     {
-        for (int i = 0; i < objectPlaced.Count; i++)
+        for (int i = 0; i < objectsPlaced.Count; i++)
         {
-            if (objectPlaced[i])
+            if (objectsPlaced[i])
             {
                 placeHolders[i].GetComponent<MeshRenderer>().material.color = Color.green;
             }
@@ -55,16 +59,16 @@ public class ButtonPressed : MonoBehaviour
         }
 
         win = true;
-        foreach (var objects in objectPlaced)
+        foreach (var caparrot in objectsPlaced)
         {
-            if (objects == false)
+            if (caparrot == false)
             {
                 win = false;
-                _gameManager.points -= 200; 
+                Points.Value -= 200; 
                             
-                if (_gameManager.points <= 0) 
+                if (Points.Value <= 0) 
                 {
-                    _gameManager.points = 0;
+                    Points.Value = 0;
                 }
             }
         }
