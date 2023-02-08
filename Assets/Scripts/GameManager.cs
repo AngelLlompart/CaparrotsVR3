@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txtPoints;
     [SerializeField] private GameObject xrCanvas;
     [SerializeField] private XROrigin playerOrigin;
+    private TouchScreenKeyboard keyboard;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +97,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void OpenKeyboard()
+    {
+        if (keyboard != null)
+        {
+            keyboard.active = true;
+        }
+        else
+        {
+            TouchScreenKeyboard.Open("");
+        }
+    }
+
+    public void CloseKeyboard()
+    {
+        keyboard.active = false;
+    }
+    
     public void InitLevel()
     {
         _timer = GameObject.FindObjectOfType<Timer>();

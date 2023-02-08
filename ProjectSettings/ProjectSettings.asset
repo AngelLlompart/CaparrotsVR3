@@ -779,7 +779,8 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: USE_VIVE_OPENXR_ANDROID_1_0_4
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
