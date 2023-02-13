@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (userInput.text == String.Empty || userInput.text == null)
+        if (username.text == String.Empty || username.text == null)
         {
             btnConfirm.interactable = false;
         }
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         
         //PlayersInfo playersInfo = new PlayersInfo();
         PlayerInfoClass player = new PlayerInfoClass();
-        player.Name = userInput.text;
+        player.Name = username.text;
         player.Points = points;
 
         
@@ -83,12 +83,14 @@ public class GameManager : MonoBehaviour
         if (win.Value)
         { 
             xrCanvas.SetActive(true);
-            playerOrigin.transform.position = new Vector3(0,0,2);
+            playerOrigin.transform.position = new Vector3(0,0,0);
         
             playerOrigin.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
             playerOrigin.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
             _player.transform.Find("LeftHand Controller").gameObject.SetActive(false);
             _player.transform.Find("LeftHand ControllerMenu").gameObject.SetActive(true);
+            _player.transform.Find("RightHand Controller").gameObject.SetActive(false);
+            _player.transform.Find("RightHand ControllerMenu").gameObject.SetActive(true);
             txtPoints.text = "Points: " + points;
         }
         else

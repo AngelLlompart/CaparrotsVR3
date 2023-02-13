@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using TMPro;
 
 namespace TalesFromTheRift
 {
@@ -11,8 +12,9 @@ namespace TalesFromTheRift
 		// Optional: Input Object to receive text 
 		public GameObject inputObject;
 
-		public void OpenKeyboard() 
-		{		
+		public void OpenKeyboard()
+		{
+			inputObject.GetComponent<TextMeshProUGUI>().text = "";
 			CanvasKeyboard.Open(CanvasKeyboardObject, inputObject != null ? inputObject : gameObject);
 		}
 

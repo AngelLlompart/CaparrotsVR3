@@ -135,7 +135,10 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: f8fe53c6202e6cc43bf40198ea922ebf, type: 2}
+  - {fileID: 2452645171079744022, guid: 16c8d7d229e18c84c98ccfdd79aa7049, type: 2}
+  - {fileID: 2135839939502279434, guid: 048d329ccf9452441a9d72a2580dadfd, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -780,7 +783,7 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: USE_VIVE_OPENXR_ANDROID_1_0_4
+    Android: 
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
