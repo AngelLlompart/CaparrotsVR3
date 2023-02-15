@@ -84,10 +84,13 @@ public class GameManager : MonoBehaviour
         { 
             xrCanvas.SetActive(true);
             playerOrigin.transform.position = new Vector3(0,0,0);
+            _player.transform.position = new Vector3(0,0,0);
         
             playerOrigin.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
             playerOrigin.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
+            playerOrigin.GetComponent<TeleportationProvider>().enabled = false;
             _player.transform.Find("LeftHand Controller").gameObject.SetActive(false);
+            _player.transform.Find("LeftHand Ray").gameObject.SetActive(false);
             _player.transform.Find("LeftHand ControllerMenu").gameObject.SetActive(true);
             _player.transform.Find("RightHand Controller").gameObject.SetActive(false);
             _player.transform.Find("RightHand ControllerMenu").gameObject.SetActive(true);
