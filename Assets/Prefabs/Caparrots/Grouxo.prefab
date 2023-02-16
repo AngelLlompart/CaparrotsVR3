@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2687641940781259197}
   m_Layer: 6
   m_Name: Grouxo
-  m_TagString: Untagged
+  m_TagString: Select
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

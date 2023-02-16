@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8052357598499646073}
   m_Layer: 6
   m_Name: Gepetto
-  m_TagString: Untagged
+  m_TagString: Select
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
