@@ -8,6 +8,7 @@ public class FresnelSelection : MonoBehaviour
     [SerializeField] private Material highlightMaterial;
 
     private Material selectedObjectMaterial;
+    private GameObject objectSelected;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,18 +23,34 @@ public class FresnelSelection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Select"))
+        if (objectSelected == null)
         {
-            selectedObjectMaterial = other.GetComponent<Renderer>().material;
-            other.GetComponent<Renderer>().material = highlightMaterial;
+            if (other.CompareTag("Select"))
+            {
+                objectSelected = other.gameObject;
+                Material objectMat = other.GetComponent<Renderer>().material;
+                if (objectMat.shader.name != highlightMaterial.shader.name)
+                {
+                    Debug.Log("a");
+                    selectedObjectMaterial = other.GetComponent<Renderer>().material;
+                    other.GetComponent<Renderer>().material = highlightMaterial;
+                }
+                
+            }
         }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Select"))
         {
-           other.GetComponent<Renderer>().material = selectedObjectMaterial;
+            objectSelected = null;
+            if (selectedObjectMaterial != null)
+            {
+                Debug.Log("b");
+                other.GetComponent<Renderer>().material = selectedObjectMaterial;
+            }
         }
     }
 }
