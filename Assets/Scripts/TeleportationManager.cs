@@ -48,6 +48,13 @@ public class TeleportationManager : MonoBehaviour
             return;
         }
 
+        if (!hit.transform.CompareTag("Floor"))
+        {
+            rayInteractor.enabled = false;
+            _isActive = false;
+            return;
+        }
+        
         TeleportRequest request = new TeleportRequest()
         {
             destinationPosition = hit.point
