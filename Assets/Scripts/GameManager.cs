@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (username.text == String.Empty || username.text == null)
+        if (String.IsNullOrEmpty(username.text.Trim()))
         {
             btnConfirm.interactable = false;
         }
