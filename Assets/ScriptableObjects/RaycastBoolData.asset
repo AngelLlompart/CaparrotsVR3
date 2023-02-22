@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b8d7de1d5e98748b829db12d9bfca5, type: 3}
   m_Name: RaycastBoolData
   m_EditorClassIdentifier: 
-  Value: 1
+  Value: 0

@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour
             _player.transform.Find("LeftHand Ray").gameObject.SetActive(false);
         }
 
-        if (raycast)
+        if (raycast.Value)
         {
             _player.transform.Find("LeftHand Controller").gameObject.SetActive(false);
             _player.transform.Find("RightHand Controller").gameObject.SetActive(false);

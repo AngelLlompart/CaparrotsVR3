@@ -5,11 +5,13 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ChangeHandPistol : MonoBehaviour
 {
-    private bool hand = true;
+    //private bool hand = true;
 
-    [SerializeField] private GameObject handPrefab;
+    //[SerializeField] private GameObject handPrefab;
 
-    [SerializeField] private GameObject pistolPrefab;
+    //[SerializeField] private GameObject pistolPrefab;
+
+    [SerializeField] private GameObject pistolHand;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,7 @@ public class ChangeHandPistol : MonoBehaviour
 
     public void ChangeHand()
     {
-        if (hand)
+        /*if (hand)
         {
             Debug.Log("EE");
             GameObject pistolModel = Instantiate(pistolPrefab, transform);
@@ -33,6 +35,15 @@ public class ChangeHandPistol : MonoBehaviour
         else
         {
             GetComponent<ActionBasedController>().modelPrefab = handPrefab.transform;
-        }
+        }*/
+        pistolHand.SetActive(true);
+        StartCoroutine(Wait());
+
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSecondsRealtime(0.05f);
+        gameObject.SetActive(false);
     }
 }
