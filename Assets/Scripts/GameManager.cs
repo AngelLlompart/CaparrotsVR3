@@ -26,39 +26,13 @@ public class GameManager : MonoBehaviour
     private TouchScreenKeyboard keyboard;
     [SerializeField] private BoolSnapTurnPersistance snapTurn;
     [SerializeField] private TeleportBoolPersistence teleport;
+    [SerializeField] private RaycastBoolSO raycast;
 
     // Start is called before the first frame update
 
     private void Awake()
     {
-        _player = GameObject.Find("Camera Offset");
-        if (snapTurn.Value)
-        {
-            playerOrigin.GetComponent<ActionBasedSnapTurnProvider>().enabled = true;
-            playerOrigin.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
-        }
-        else
-        {
-            playerOrigin.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
-            playerOrigin.GetComponent<ActionBasedSnapTurnProvider>().enabled = false;
-        }
-
-        if (teleport.Value)
-        {
-            playerOrigin.GetComponent<TeleportationProvider>().enabled = true;
-            playerOrigin.GetComponent<TeleportationManager>().enabled = true;
-            playerOrigin.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
-            _player.transform.Find("LeftHand Ray").gameObject.SetActive(true);
-            _player.transform.Find("LeftHand Ray2").gameObject.SetActive(false);
-        }
-        else
-        {
-            playerOrigin.GetComponent<TeleportationProvider>().enabled = false;
-            playerOrigin.GetComponent<TeleportationManager>().enabled = false;
-            playerOrigin.GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;
-            _player.transform.Find("LeftHand Ray").gameObject.SetActive(false);
-            _player.transform.Find("LeftHand Ray2").gameObject.SetActive(true);
-        }
+        
     }
 
     void Start()
@@ -125,6 +99,7 @@ public class GameManager : MonoBehaviour
             playerOrigin.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
             playerOrigin.GetComponent<TeleportationProvider>().enabled = false;
             _player.transform.Find("LeftHand Controller").gameObject.SetActive(false);
+            _player.transform.Find("RightHand Ray").gameObject.SetActive(false);
             _player.transform.Find("LeftHand Ray").gameObject.SetActive(false);
             _player.transform.Find("LeftHand Ray2").gameObject.SetActive(false);
             _player.transform.Find("LeftHand ControllerMenu").gameObject.SetActive(true);
@@ -164,5 +139,47 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         win.Value = false;
         xrCanvas.SetActive(false);
+        
+        
+        if (snapTurn.Value)
+        {
+            playerOrigin.GetComponent<ActionBasedSnapTurnProvider>().enabled = true;
+            playerOrigin.GetComponent<ActionBasedContinuousTurnProvider>().enabled = false;
+        }
+        else
+        {
+            playerOrigin.GetComponent<ActionBasedContinuousTurnProvider>().enabled = true;
+            playerOrigin.GetComponent<ActionBasedSnapTurnProvider>().enabled = false;
+        }
+
+        if (teleport.Value)
+        {
+            playerOrigin.GetComponent<TeleportationProvider>().enabled = true;
+            playerOrigin.GetComponent<TeleportationManager>().enabled = true;
+            playerOrigin.GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
+            _player.transform.Find("LeftHand Ray").gameObject.SetActive(true);
+        }
+        else
+        {
+            playerOrigin.GetComponent<TeleportationProvider>().enabled = false;
+            playerOrigin.GetComponent<TeleportationManager>().enabled = false;
+            playerOrigin.GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;
+            _player.transform.Find("LeftHand Ray").gameObject.SetActive(false);
+        }
+
+        if (raycast)
+        {
+            _player.transform.Find("LeftHand Controller").gameObject.SetActive(false);
+            _player.transform.Find("RightHand Controller").gameObject.SetActive(false);
+            _player.transform.Find("LeftHand Ray2").gameObject.SetActive(true);
+            _player.transform.Find("RightHand Ray").gameObject.SetActive(true);
+        }
+        else
+        {
+            _player.transform.Find("LeftHand Controller").gameObject.SetActive(true);
+            _player.transform.Find("RightHand Controller").gameObject.SetActive(true);
+            _player.transform.Find("LeftHand Ray2").gameObject.SetActive(false);
+            _player.transform.Find("RightHand Ray").gameObject.SetActive(false);
+        }
     }
 }

@@ -9,10 +9,14 @@ public class SettingsManager : MonoBehaviour
 
     [SerializeField] private TeleportBoolPersistence teleport;
 
+    [SerializeField] private RaycastBoolSO raycast;
+
     [SerializeField] private Toggle snapTurnToggle;
     [SerializeField] private Toggle continuousTurnToggle;
     [SerializeField] private Toggle teleportToggle;
     [SerializeField] private Toggle continuousMoveToggle;
+    [SerializeField] private Toggle directToggle;
+    [SerializeField] private Toggle raycastToggle;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,15 @@ public class SettingsManager : MonoBehaviour
         else
         {
             teleport.Value = false;
+        }
+
+        if (raycastToggle.isOn)
+        {
+            raycast.Value = true;
+        }
+        else
+        {
+            raycast.Value = false;
         }
         
     }
@@ -87,6 +100,31 @@ public class SettingsManager : MonoBehaviour
         else
         {
             continuousMoveToggle.isOn = true;
+        }
+    }
+    
+    
+    public void DirectToggle()
+    {
+        if (directToggle.isOn)
+        {
+            raycastToggle.isOn = false;
+        }
+        else
+        {
+            raycastToggle.isOn = true;
+        }
+    }
+    
+    public void RaycastToggle()
+    {
+        if (raycastToggle.isOn)
+        { 
+            directToggle.isOn = false;
+        }
+        else
+        {
+            directToggle.isOn = true;
         }
     }
 }
