@@ -20,7 +20,32 @@ public class SettingsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (snapTurn.Value)
+        {
+            snapTurnToggle.isOn = true;
+        }
+        else
+        {
+            snapTurnToggle.isOn = false;
+        }
+
+        if (teleport.Value)
+        {
+            teleportToggle.isOn = true;
+        }
+        else
+        {
+            teleportToggle.isOn = false;
+        }
+
+        if (raycast.Value)
+        {
+            raycastToggle.isOn = true;
+        }
+        else
+        {
+            raycastToggle.isOn = false;
+        }
     }
 
     // Update is called once per frame

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,18 +13,21 @@ public class ChangeHandPistol : MonoBehaviour
     //[SerializeField] private GameObject pistolPrefab;
 
     [SerializeField] private GameObject pistolHand;
+    public XRDirectInteractor directInteractor = null;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
+    private void Awake()
+    {
+        directInteractor = GetComponent<XRDirectInteractor>();
+    }
     public void ChangeHand()
     {
         /*if (hand)
@@ -36,9 +40,19 @@ public class ChangeHandPistol : MonoBehaviour
         {
             GetComponent<ActionBasedController>().modelPrefab = handPrefab.transform;
         }*/
-        pistolHand.SetActive(true);
-        StartCoroutine(Wait());
 
+      
+            pistolHand.SetActive(true);
+          // gameObject.SetActive(false);
+            StartCoroutine(Wait());
+
+    }
+    
+    private bool TouchingObject()
+    {
+        List<IXRInteractable> targets = new List<IXRInteractable>();
+        directInteractor.GetValidTargets(targets);
+        return (targets.Count > 0);
     }
 
     IEnumerator Wait()
