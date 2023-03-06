@@ -28,6 +28,12 @@ public class ChangeHandPistol : MonoBehaviour
     {
         directInteractor = GetComponent<XRDirectInteractor>();
     }
+
+    private void OnEnable()
+    {
+        if(directInteractor != null) directInteractor.enabled = true;
+    }
+
     public void ChangeHand()
     {
         /*if (hand)
@@ -41,10 +47,16 @@ public class ChangeHandPistol : MonoBehaviour
             GetComponent<ActionBasedController>().modelPrefab = handPrefab.transform;
         }*/
 
-      
+
+        /*if (directInteractor == null || !TouchingObject())
+        {
+            if(directInteractor != null) directInteractor.enabled = false;
             pistolHand.SetActive(true);
-          // gameObject.SetActive(false);
-            StartCoroutine(Wait());
+            gameObject.SetActive(false); 
+        }*/
+        
+        pistolHand.SetActive(true);
+        StartCoroutine(Wait());
 
     }
     
