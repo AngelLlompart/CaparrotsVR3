@@ -222,6 +222,7 @@ MonoBehaviour:
   - {fileID: 2380158087354817617}
   - {fileID: -3505316092122981141}
   - {fileID: -8909367145938126024}
+  - {fileID: 488753816081025209}
   - {fileID: -1053869692578446667}
   - {fileID: 5549379536770885777}
   m_renderMode: 1
@@ -607,6 +608,46 @@ MonoBehaviour:
   - {fileID: -6355434164693160458}
   - {fileID: 2135839939502279434}
   - {fileID: -3853192597509730517}
+--- !u!114 &488753816081025209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651ead225c5006a47a4c1b260324bcad, type: 3}
+  m_Name: PICOTouchControllerProfile Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: PICO Touch Controller Profile
+  version: 1.0.0
+  featureIdInternal: com.unity.openxr.feature.input.PICOtouch
+  openxrExtensionStrings: 
+  company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &610256640377079176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651ead225c5006a47a4c1b260324bcad, type: 3}
+  m_Name: PICOTouchControllerProfile Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: PICO Touch Controller Profile
+  version: 1.0.0
+  featureIdInternal: com.unity.openxr.feature.input.PICOtouch
+  openxrExtensionStrings: 
+  company: Unity
+  priority: 0
+  required: 0
 --- !u!114 &673147045027740917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,6 +708,8 @@ MonoBehaviour:
   - {fileID: -2196139507321157645}
   - {fileID: -2448293180210400593}
   - {fileID: 7922704228258339631}
+  - {fileID: 2212175276644292181}
+  - {fileID: 610256640377079176}
   - {fileID: -5471667315439361723}
   - {fileID: -7074881357446645456}
   - {fileID: 7308934527324570734}
@@ -681,6 +724,26 @@ MonoBehaviour:
   - {fileID: 8692597481622120762}
   m_renderMode: 1
   m_depthSubmissionMode: 0
+--- !u!114 &2212175276644292181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa5b568c4324bd4faad2da2e7ee7e84, type: 3}
+  m_Name: PICOFeature Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: PICO Support
+  version: 1.0.0
+  featureIdInternal: com.unity.openxr.feature.piconeo3
+  openxrExtensionStrings: 
+  company: Unity
+  priority: 0
+  required: 0
 --- !u!114 &2220372187873210581
 MonoBehaviour:
   m_ObjectHideFlags: 0
