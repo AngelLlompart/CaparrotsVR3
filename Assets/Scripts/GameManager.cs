@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene("GameOver");
+           
         }
     }
 

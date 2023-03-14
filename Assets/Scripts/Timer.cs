@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    private int timerInitialValue = 180;
+    private int timerInitialValue = 5;
     [SerializeField]
     private GameManager _gameManager;
     [SerializeField] 
