@@ -77,6 +77,10 @@ public class PhysicsButton1 : MonoBehaviour
     //     rb.velocity = transform.TransformDirection(localVelocity);
     // }
 
+    public void PokePress()
+    {
+        buttonTop.position = buttonLowerLimit.position;
+    }
     void Pressed(){
         prevPressedState = isPressed;
         pressedSound.pitch = 1;
@@ -84,7 +88,7 @@ public class PhysicsButton1 : MonoBehaviour
         onPressed.Invoke();
     }
 
-    void Released(){
+    public void Released(){
         prevPressedState = isPressed;
         releasedSound.pitch = Random.Range(1.1f, 1.2f);
         releasedSound.Play();
