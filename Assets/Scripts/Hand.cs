@@ -26,7 +26,7 @@ public class Hand : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void SetGrup(float v)
+    public void SetGrip(float v)
     {
         gripTarget = v;
     }
