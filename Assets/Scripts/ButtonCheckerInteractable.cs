@@ -40,7 +40,7 @@ public class ButtonCheckerInteractable : XRBaseInteractable
     {
         if (base.isHovered)
         {
-            GetComponent<ButtonPressed>().Press();
+            GetComponent<PhysicsButton1>().PokePress();
         }
     }
 

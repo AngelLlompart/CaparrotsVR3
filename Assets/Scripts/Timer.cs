@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
     void DisplayTime(float _timeToDisplay)
     {
         _timeToDisplay += 1;
-        _timerText = GameObject.Find("time").GetComponent<TextMeshProUGUI>();
+        
         float minutes = Mathf.FloorToInt(_timeToDisplay / 60); 
         float seconds = Mathf.FloorToInt(_timeToDisplay % 60);
         _timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -48,6 +48,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
+        _timerText = GameObject.Find("time").GetComponent<TextMeshProUGUI>();
         ResetTimer();
     }
 
