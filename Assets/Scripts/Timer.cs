@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    private int timerInitialValue = 5;
+    private int timerInitialValue = 180;
     [SerializeField]
     private GameManager _gameManager;
     [SerializeField] 
@@ -21,6 +21,7 @@ public class Timer : MonoBehaviour
     void DisplayTime(float _timeToDisplay)
     {
         _timeToDisplay += 1;
+        _timerText = GameObject.Find("time").GetComponent<TextMeshProUGUI>();
         float minutes = Mathf.FloorToInt(_timeToDisplay / 60); 
         float seconds = Mathf.FloorToInt(_timeToDisplay % 60);
         _timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
