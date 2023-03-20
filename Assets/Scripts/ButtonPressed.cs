@@ -75,11 +75,29 @@ public class ButtonPressed : MonoBehaviour
                     
         if (win)
         {
+            foreach (var pedestal in placeHolders)
+            {
+                pedestal.transform.Find("fireworks").Find("Particle System").GetComponent<ParticleSystem>().Play();
+                StartCoroutine(DelayedSound(pedestal));
+            }
             _gameManager.win.Value = true;
-            _gameManager.EndGame();
+            StartCoroutine(DelayedWin());
+            //_gameManager.EndGame();
         }
     }
 
+    private IEnumerator DelayedWin()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        _gameManager.EndGame();
+    }
+
+    private IEnumerator DelayedSound(GameObject pedestal)
+    {
+        yield return new WaitForSecondsRealtime(1);
+        pedestal.GetComponent<AudioSource>().Play();
+    }
+    
     IEnumerator Button()
     {
         transform.position -= new Vector3(0, 0.05f, 0);

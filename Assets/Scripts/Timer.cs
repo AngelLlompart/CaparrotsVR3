@@ -48,7 +48,15 @@ public class Timer : MonoBehaviour
     void Start()
     {
         _gameManager = FindObjectOfType<GameManager>();
-        _timerText = GameObject.Find("time").GetComponent<TextMeshProUGUI>();
+        if (_gameManager.raycast.Value)
+        {
+            _timerText = GameObject.Find("timeRay").GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            _timerText = GameObject.Find("time").GetComponent<TextMeshProUGUI>();
+        }
+        
         ResetTimer();
     }
 

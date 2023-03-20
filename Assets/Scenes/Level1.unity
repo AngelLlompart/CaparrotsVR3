@@ -1695,6 +1695,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160419553}
   m_CullTransparentMesh: 1
+--- !u!1 &182463105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 724516902462815848, guid: 40e98a6e02546ac47aa68b370f62ef80,
+    type: 3}
+  m_PrefabInstance: {fileID: 321788757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &267534122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3057,7 +3063,7 @@ GameObject:
   - component: {fileID: 369381939}
   - component: {fileID: 369381938}
   m_Layer: 0
-  m_Name: time
+  m_Name: timeRay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5371,6 +5377,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820538714}
   m_CullTransparentMesh: 1
+--- !u!1 &834189390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1508186633466078286, guid: 40e98a6e02546ac47aa68b370f62ef80,
+    type: 3}
+  m_PrefabInstance: {fileID: 321788757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &892807339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6163,12 +6175,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.5, y: 0}
   m_SizeDelta: {x: -5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &990533141 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3676239090925903719, guid: 40e98a6e02546ac47aa68b370f62ef80,
-    type: 3}
-  m_PrefabInstance: {fileID: 321788757}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &991255790
 GameObject:
   m_ObjectHideFlags: 0
@@ -6641,17 +6647,17 @@ PrefabInstance:
         type: 3}
       propertyPath: prefabsPedestal.Array.data[0]
       value: 
-      objectReference: {fileID: 1954389081}
+      objectReference: {fileID: 1579864526}
     - target: {fileID: 6899973628147766791, guid: c452ade961fa6d14d95f4a9ba6909307,
         type: 3}
       propertyPath: prefabsPedestal.Array.data[1]
       value: 
-      objectReference: {fileID: 1807258342}
+      objectReference: {fileID: 182463105}
     - target: {fileID: 6899973628147766791, guid: c452ade961fa6d14d95f4a9ba6909307,
         type: 3}
       propertyPath: prefabsPedestal.Array.data[2]
       value: 
-      objectReference: {fileID: 990533141}
+      objectReference: {fileID: 834189390}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c452ade961fa6d14d95f4a9ba6909307, type: 3}
 --- !u!1 &1046105691
@@ -9393,6 +9399,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 1716354109}
+--- !u!1 &1579864526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2151758889806631812, guid: 40e98a6e02546ac47aa68b370f62ef80,
+    type: 3}
+  m_PrefabInstance: {fileID: 321788757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1592294658
 GameObject:
   m_ObjectHideFlags: 0
@@ -10595,12 +10607,6 @@ RectTransform:
   m_AnchoredPosition: {x: -6.13, y: 2.401}
   m_SizeDelta: {x: 503.0143, y: 482.6313}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1807258342 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4698340262864270921, guid: 40e98a6e02546ac47aa68b370f62ef80,
-    type: 3}
-  m_PrefabInstance: {fileID: 321788757}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1825579161
 GameObject:
   m_ObjectHideFlags: 0
@@ -10892,12 +10898,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &1954389081 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4724365292397920904, guid: 40e98a6e02546ac47aa68b370f62ef80,
-    type: 3}
-  m_PrefabInstance: {fileID: 321788757}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2021241387
 PrefabInstance:
   m_ObjectHideFlags: 0
